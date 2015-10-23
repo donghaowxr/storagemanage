@@ -21,8 +21,16 @@ namespace storagemanage.Controllers
          */
         public ActionResult Login()
         {
+            ViewData["url"] = url;
             return View();
         }
 
+        string url = System.Configuration.ConfigurationManager.ConnectionStrings["url"].ConnectionString;
+
+        public ActionResult GetUrl()
+        {
+            var result = new { url = url };
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

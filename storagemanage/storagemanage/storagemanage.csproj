@@ -84,9 +84,8 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Scripts\javascript\LoginVer.js" />
+    <Content Include="Scripts\javascript\LoginReg.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
-    <Content Include="Scripts\login.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
