@@ -77,13 +77,10 @@ var UserReg = {
 */
 var RegPost = {
     regSubmit: function () {
-        var url = '';
         $.post('/Login/GetUrl', '', function (res) {
-            url = res.url;
-        });
-        if (url != '') {
+            var url = res.url;
             alert(url);
-        }
+        });
     }
 }
 
