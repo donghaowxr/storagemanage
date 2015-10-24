@@ -59,7 +59,7 @@ var UserReg = {
                 UserRegEx.userNameLen();
                 return false;
             }
-            if ($('#passwd').val().length < this.pwdmin) {
+            if ($('#passwd').val().length < UserReg.pwdmin) {
                 UserRegEx.passwordLen();
                 return false;
             }
@@ -112,7 +112,7 @@ var UserRegEx = {
     //密码长度不能太短
     passwordLen: function () {
         $('#passwd').focus();
-        $('#userCue').html("<font color='red'><b>×密码不能小于" + pwdmin + "位</b></font>");
+        $('#userCue').html("<font color='red'><b>×密码不能小于" + UserReg.pwdmin + "位</b></font>");
     },
 
     //验证两次密码是否一致
