@@ -26,11 +26,18 @@ namespace storagemanage.Controllers
         }
 
         string url = System.Configuration.ConfigurationManager.ConnectionStrings["url"].ConnectionString;
-
+        /*
+         * 获取url测试
+         */
         public ActionResult GetUrl()
         {
             var result = new { url = url };
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Test()
+        {
+            return View();
         }
     }
 }

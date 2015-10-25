@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Test</title>
+    <script src="../../Scripts/jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btnPost').click(function () {
+                $.post('http://10.0.0.7:1000/api/Login', '0', function (res) {
+                    $('#res').html(res);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <button id="btnPost">提交测试</button>
+        <div id="res"></div>
+    </div>
+</body>
+</html>
