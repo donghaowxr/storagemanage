@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HttpCommand;
+using storagemanage.Models.common;
+using QRCodeService;
+using storagemanage.Models;
 
 namespace storagemanage.Controllers
 {
@@ -22,17 +25,25 @@ namespace storagemanage.Controllers
          */
         public ActionResult Login()
         {
-            ViewData["url"] = url;
             return View();
         }
 
+        //api地址
         string url = System.Configuration.ConfigurationManager.ConnectionStrings["url"].ConnectionString;
         /*
          * 获取url测试
          */
-        public ActionResult GetUrl()
+        public ActionResult regPost()
         {
-            var result = new { url = url };
+            string regUrl = url + "/api/Reg";
+            string username = Request["username"];
+            string password = Request["password"];
+            string sign = SignHelper.getRegSign(username, password);
+            string requestParam = "username=" + username + "&password=" + password + "&sign=" + sign;
+            string response = HttpPost.httppost(requestParam, regUrl);
+            //var result = new { resultCode = response };
+            LoginReg reg = JSONHelper.JsonDeserialize<LoginReg>(response);
+            var result = new { code = reg.code, msg = reg.msg, returnCode = reg.returnCode };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -49,7 +60,7 @@ namespace storagemanage.Controllers
          */
         public ActionResult TestPost()
         {
-            string res = HttpPost.httppost("pos=1", "http://192.168.0.93:1000/api/Login");
+            string res = HttpPost.httppost("pos=1&bill=1", "http://192.168.0.93:1000/api/Login");
             var result = new { res = res };
             return Json(result, JsonRequestBehavior.AllowGet);
         }

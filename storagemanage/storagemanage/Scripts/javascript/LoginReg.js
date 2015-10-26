@@ -77,9 +77,17 @@ var UserReg = {
 */
 var RegPost = {
     regSubmit: function () {
-        $.post('/Login/GetUrl', '', function (res) {
-            var url = res.url;
-            alert(url);
+        var regData = {
+            username: $('#user').val(),
+            password: $('#passwd').val()
+        }
+        $.post('/Login/regPost', regData, function (res) {
+            if (res.msg == 'SUCCESS') {
+                $('#userCue').html("<font color='green'><b>√注册成功</b></font>");
+            }
+            if (res.msg == 'FAIL') {
+                $('#userCue').html("<font color='red'><b>×注册失败</b></font>");
+            }
         });
     }
 }

@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -64,6 +65,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\common\HttpPost.cs" />
+    <Compile Include="Models\common\JSONHelper.cs" />
+    <Compile Include="Models\common\MD5Util.cs" />
+    <Compile Include="Models\common\SignHelper.cs" />
+    <Compile Include="Models\common\Utils.cs" />
+    <Compile Include="Models\LoginReg.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
