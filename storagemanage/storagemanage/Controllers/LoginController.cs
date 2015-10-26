@@ -31,7 +31,7 @@ namespace storagemanage.Controllers
         //api地址
         string url = System.Configuration.ConfigurationManager.ConnectionStrings["url"].ConnectionString;
         /*
-         * 获取url测试
+         * 注册post处理
          */
         public ActionResult regPost()
         {
