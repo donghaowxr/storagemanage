@@ -19,9 +19,9 @@ namespace storagemanage.Models.common
         /*
          * 获取注册签名
          */
-        public static string getRegSign(string username, string password)
+        public static string getRegSign(string username, string password, string d)
         {
-            string[] strs = { "username=" + username, "password=" + password };
+            string[] strs = { "username=" + username, "password=" + password, "d=" + d };
             return signHelper(strs);
         }
     }
