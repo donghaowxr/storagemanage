@@ -12,6 +12,9 @@ namespace storagemanage.Controllers
 {
     public class LoginController : Controller
     {
+        //api地址
+        string url = System.Configuration.ConfigurationManager.ConnectionStrings["url"].ConnectionString;
+
         //
         // GET: /Login/
 
@@ -25,11 +28,10 @@ namespace storagemanage.Controllers
          */
         public ActionResult Login()
         {
+
             return View();
         }
 
-        //api地址
-        string url = System.Configuration.ConfigurationManager.ConnectionStrings["url"].ConnectionString;
         /*
          * 注册post处理
          */
@@ -47,6 +49,9 @@ namespace storagemanage.Controllers
             var result = new { code = reg.code, msg = reg.msg, returnCode = reg.returnCode };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+
+
 
         /*
          * api测试页面
