@@ -28,13 +28,31 @@ namespace storagemanage.Controllers
          */
         public ActionResult Login()
         {
-
             return View();
+        }
+
+        /*
+         * 登录post处理
+         */
+        [HttpPost]
+        public ActionResult loginPost()
+        {
+            string loginUrl=url+"/api/Login";
+            string username = Request["username"];
+            string password = Request["password"];
+            string d = DateTime.Now.ToString();
+            string sign = SignHelper.getLoginSign(username, password, d);
+            string requestParam = "username=" + username + "&password=" + password + "&d=" + d + "&sign=" + sign;
+            string response = HttpPost.httppost(requestParam, loginUrl);
+            LoginReg login = JSONHelper.JsonDeserialize<LoginReg>(response);
+            var result = new { code = login.code, msg = login.msg, returnCode = login.returnCode };
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         /*
          * 注册post处理
          */
+        [HttpPost]
         public ActionResult regPost()
         {
             string regUrl = url + "/api/Reg";

@@ -24,5 +24,14 @@ namespace storagemanage.Models.common
             string[] strs = { "username=" + username, "password=" + password, "d=" + d };
             return signHelper(strs);
         }
+
+        /*
+         * 获取登录签名
+         */
+        internal static string getLoginSign(string username, string password, string d)
+        {
+            string[] strs = { "username=" + username, "password=" + password, "d=" + d };
+            return signHelper(strs);
+        }
     }
 }
