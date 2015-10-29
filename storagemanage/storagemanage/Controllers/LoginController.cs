@@ -58,9 +58,10 @@ namespace storagemanage.Controllers
             string regUrl = url + "/api/Reg";
             string username = Request["username"];
             string password = Request["password"];
+            string iden = Request["iden"];
             string d = DateTime.Now.ToString();
-            string sign = SignHelper.getRegSign(username, password, d);
-            string requestParam = "username=" + username + "&password=" + password + "&d=" + d + "&sign=" + sign;
+            string sign = SignHelper.getRegSign(username, password, d, iden);
+            string requestParam = "username=" + username + "&password=" + password + "&d=" + d + "&sign=" + sign + "&iden=" + iden;
             string response = HttpPost.httppost(requestParam, regUrl);
             //var result = new { resultCode = response };
             LoginReg reg = JSONHelper.JsonDeserialize<LoginReg>(response);

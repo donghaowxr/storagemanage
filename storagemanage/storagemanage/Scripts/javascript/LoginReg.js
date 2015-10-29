@@ -59,14 +59,23 @@
     regPost: function () {
         var regData = {
             username: $('#user').val(),
-            password: $('#passwd').val()
+            password: $('#passwd').val(),
+            iden: $('#iden option:selected').val()
         }
         $.post('/Login/regPost', regData, function (res) {
             if (res.msg == 'SUCCESS') {
                 $('#userCue').html("<font color='green'><b>√注册成功</b></font>");
             }
             if (res.msg == 'FAIL') {
-                $('#userCue').html("<font color='red'><b>×注册失败</b></font>");
+                if (res.code == '10') {
+                    $('#userCue').html("<font color='red'><b>×签名错误</b></font>");
+                }
+                if (res.code == '1') {
+                    $('#userCue').html("<font color='red'><b>×用户名已存在</b></font>");
+                }
+                if (res.code == '2') {
+                    $('#userCue').html("<font color='red'><b>×数据库连接错误</b></font>");
+                }
             }
         });
     },
@@ -118,6 +127,7 @@
                 return false;
             }
             RegOrLogin.regPost();
+//            alert($('#iden option:selected').val());
         });
 
         //点击登录按钮
