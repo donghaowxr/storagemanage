@@ -1,5 +1,0 @@
-D:\donghaoGit\storagemanage\storagemanage\storagemanage\bin\storagemanage.dll
-D:\donghaoGit\storagemanage\storagemanage\storagemanage\bin\storagemanage.pdb
-D:\donghaoGit\storagemanage\storagemanage\storagemanage\obj\Debug\storagemanage.dll
-D:\donghaoGit\storagemanage\storagemanage\storagemanage\obj\Debug\storagemanage.pdb
-D:\donghaoGit\storagemanage\storagemanage\storagemanage\obj\Debug\storagemanage.csprojResolveAssemblyReference.cache
